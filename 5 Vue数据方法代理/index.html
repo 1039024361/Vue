@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>代理Vue data数据</title>
+  <script src="./index.js"></script>
+</head>
+<body>
+  
+  <div id="container1">你好，我是{{ name }}，今年{{age}}岁。
+    <div id="containter2">你好，我喜欢你！</div>
+    我喜欢运动，包括{{ interests[0] }}，{{ interests[1] }}，{{ interests[2] }}。
+    <span>我认为阅读{{habit.reading}}, 训练？{{habit.training}}，做梦？{{habit.dream}}</span>
+    <span>{{ showFUllText }}</span>
+    <span>{{ showFUllText }}</span>
+    <span>{{ showFUllText }}</span>
+    <span>{{ showFUllText }}</span>
+  </div>
+  <script>
+    var vm = new Svue({
+      el: '#container1',
+      data: {
+        name: 'ZhongDerer',
+        age: 18,
+        interests: ['basketball', 'baseball', 'tennis'],
+        habit: {
+          reading: 'good',
+          training: 'not really interest',
+          dream: 'frequently'
+        }
+      },
+      computed: {
+        showFUllText: function () {
+          var result = 'My name is ' + this.name + '. I am ' + this.age + ' years old. ' + 'From computed.'
+          console.log(result)
+          return result
+        }
+      }
+    })
+  </script>
+</body>
+</html>

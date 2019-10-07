@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>添加Vue指令支持</title>
+  <script src="./index.js"></script>
+  <style>
+    .button-style {
+      color: red;
+    }
+    .inlineBlock {
+      display: inline-block;
+    }
+    .pdl10 {
+      padding-left: 10px;
+    }
+  </style>
+</head>
+<body>
+  
+  <div id="container1">
+    <!-- 你好，我是{{ name }}，今年{{age}}岁。 -->
+    <!-- <div id="containter2">你好，我喜欢你！</div>
+    我喜欢运动，包括{{ interests[0] }}，{{ interests[1] }}，{{ interests[2] }}。
+    <span>我认为阅读{{habit.reading}}, 训练？{{habit.training}}，做梦？{{habit.dream}}</span>
+    <span>{{ showFUllText }}</span>
+    <span>{{ showFUllText }}</span>
+    <span>{{ showFUllText }}</span>
+    <span>{{ showFUllText }}</span>
+    <span>你好</span> -->
+    <!-- <button @click="onClick" :class="{pdl10: isPadding, 'button-style': isButtonStyle, inlineBlock: isInlineBlock }">click me</button> -->
+    <!-- <button @click="onClick" :class="styleObj">click me</button> -->
+    <div :class="['string', classVal, styleObj]">数组格式的class</div>
+    <!-- <button @click="onClick" :class="classVal">click me</button> -->
+    <a target="_blank" :href="`https://${url}`">百度</a>
+    <input type="text" v-model="url">
+  </div>
+  <script>
+    var vm = new Svue({
+      el: '#container1',
+      url: 'www.baidu.com',
+      data: {
+        isPadding: true,
+        isButtonStyle: true,
+        isInlineBlock: true,
+        url: 'www.baidu.com',
+        name: 'ZhongDerer',
+        age: 18,
+        interests: ['basketball', 'baseball', 'tennis'],
+        habit: {
+          reading: 'good',
+          training: 'not really interest',
+          dream: 'frequently'
+        },
+        classVal: 'classVal',
+        styleObj: {
+          pdl10: true,
+          'button-style': true,
+          inlineBlock: true
+        }
+      },
+      computed: {
+        showFUllText: function () {
+          var result = 'My name is ' + this.name + '. I am ' + this.age + ' years old. ' + 'From computed.'
+          console.log(result)
+          return result
+        }
+      },
+      methods: {
+        onClick: function () {
+          console.log('onclick')
+        }
+      }
+    })
+  </script>
+</body>
+</html>
