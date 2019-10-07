@@ -1,0 +1,12 @@
+{
+  "name": "PublishSubscribePattern",
+  "version": "1.0.0",
+  "description": "to show the theory of Publish Subscribe Pattern in an easy way.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
